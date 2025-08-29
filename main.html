@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OmegaStrike • Official</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#0f1720;
+      --muted:#9aa4b2;
+      --accent:#dba847; /* orange */
+      --accent-2:#504d4c;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.04);
+      --max-width:1100px;
+      --radius:14px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#05060a 0%, var(--bg) 60%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:52px;height:52px;border-radius:12px;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;place-items:center;font-weight:800;color:#fff;
+      box-shadow:0 8px 30px rgba(255,90,0,0.14);
+      font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    nav a:hover{color:#fff}
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:34px 0}
+    .hero-left h1{font-size:44px;margin:0 0 6px 0;line-height:1.02}
+    .tag{display:inline-block;padding:6px 10px;background:var(--glass);border-radius:999px;color:var(--accent);font-weight:700;font-size:12px;margin-bottom:10px}
+    .hero-left p{color:var(--muted);max-width:640px;margin:10px 0 18px}
+    .ctas{display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;border:0}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#111}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    /* hero right card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:16px;border-radius:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 30px rgba(0,0,0,0.6)}
+    .live-badge{display:inline-block;padding:6px 10px;background:#ff3d00;color:#fff;border-radius:999px;font-weight:800;font-size:12px}
+    .match{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+    .muted{color:var(--muted);font-size:13px}
+    /* sections */
+    section{padding:32px 0}
+    h2{margin:0 0 8px 0;font-size:22px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .player{background:var(--card);padding:14px;border-radius:12px;border:1px solid var(--glass-2)}
+    .player .tag{background:transparent;color:var(--muted);padding:0;margin:0 0 6px 0;display:block}
+    .player h3{margin:2px 0 8px 0}
+    .stat-row{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:13px}
+    .sponsor-strip{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:10px}
+    .sponsor{padding:8px 12px;background:rgba(255,255,255,0.02);border-radius:8px;color:var(--muted);font-weight:700}
+    /* tournaments */
+    .t-card{background:var(--card);padding:16px;border-radius:12px;border:1px solid var(--glass-2)}
+    .flex{display:flex;gap:12px;align-items:center}
+    /* contact */
+    form{display:grid;gap:10px;max-width:560px}
+    input,textarea{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#fff;outline:none}
+    textarea{min-height:120px;resize:vertical}
+    footer{padding:28px 0;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03);margin-top:28px}
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      nav{display:none}
+      .grid-3{grid-template-columns:1fr}
+    }
+
+    /* tiny social icons */
+    .icon{width:18px;height:18px;display:inline-block;vertical-align:middle}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">OS</div>
+        <div>
+          <div style="font-weight:800;font-size:15px">OmegaStrike</div>
+          <div style="color:var(--muted);font-size:12px">BGMI • India</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#tournaments">Tournaments</a>
+        <a href="#players">Players</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <div class="tag">Hyderabad • Telangana</div>
+        <h1>Omegastrike — Rise. Fight. Conquer.</h1>
+        <p>Top-tier Indian BGMI roster competing in national and regional championships. Tune into our streams, follow our journey, and join the community on Discord.</p>
+
+        <div class="ctas">
+          <button class="btn btn-primary" onclick="location.href='#tournaments'">Upcoming Matches</button>
+          <button class="btn btn-ghost" onclick="location.href='#players'">Meet The Roster</button>
+        </div>
+
+        <div style="margin-top:18px" class="sponsor-strip">
+          <div class="sponsor">HyperGears</div>
+          <div class="sponsor">FuelX</div>
+          <div class="sponsor">TelcoPro</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div class="live-badge">LIVE</div>
+          <div class="muted">Next match • 0 days</div>
+        </div>
+
+        <div style="margin-top:12px">
+          <div style="font-weight:800;font-size:18px">Regional Showdown • Week 2</div>
+          <div class="muted" style="margin-top:4px">BO3 — Double Elim — Prize pool ₹3,00,000</div>
+
+          <div class="match">
+            <div class="muted">Sat, Sep 6 • 8:30 PM IST</div>
+            <div style="font-weight:800;color:var(--accent)">OmegaStrike vs TBD</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TOURNAMENTS -->
+    <section id="tournaments">
+      <h2>Upcoming Tournaments</h2>
+      <p class="muted">We focus on competitive qualifiers, invitational events and LANs across India.</p>
+
+      <div style="margin-top:14px" class="grid-3">
+        <div class="t-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-weight:800">BGIS 2025 Qualifier</div>
+            <div class="muted" style="font-size:12px">Online</div>
+          </div>
+          <div class="muted" style="margin-top:8px">Sat, Aug 30 • 7:00 PM IST</div>
+          <div style="margin-top:10px;font-weight:700;color:var(--accent)">Status: - </div>
+        </div>
+
+        <div class="t-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-weight:800">BGMI Showdown 2025</div>
+            <div class="muted" style="font-size:12px">LAN</div>
+          </div>
+          <div class="muted" style="margin-top:8px">Fri, Sep 12 • 5:00 PM IST</div>
+          <div style="margin-top:10px;font-weight:700;color:#ffba00">Status: - </div>
+        </div>
+
+        <div class="t-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="font-weight:800">NODWIN Cup</div>
+            <div class="muted" style="font-size:12px">Online</div>
+          </div>
+          <div class="muted" style="margin-top:8px">Sun, Sep 21 • 6:00 PM IST</div>
+          <div style="margin-top:10px;font-weight:700;color:var(--muted)">Status: TBA</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAYERS -->
+    <section id="players">
+      <h2>Roster</h2>
+      <p class="muted">Five players + subs, a coach and an analyst.</p>
+
+      <div style="margin-top:12px" class="grid-3">
+        <div class="player">
+          <div class="tag">PLAYER #1 • IGL</div>
+          <h3>Turbo</h3>
+          <div class="stat-row"><div style="font-weight:800">K/D 1.28</div><div class="muted">• 420 hrs</div></div>
+        </div>
+
+        <div class="player">
+          <div class="tag">PLAYER #2 • Assaulter</div>
+          <h3>SPIKE</h3>
+          <div class="stat-row"><div style="font-weight:800">K/D 1.15</div><div class="muted">• 380 hrs</div></div>
+        </div>
+
+        <div class="player">
+          <div class="tag">PLAYER #3 • Sniper</div>
+          <h3>OCTANE</h3>
+          <div class="stat-row"><div style="font-weight:800">K/D 1.32</div><div class="muted">• 350 hrs</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About OmegaStrike</h2>
+      <p class="muted">Founded in 2025. Focused on youth talent development, pro scrims, and sustainable player growth. We run community cups and training clinics across cities.</p>
+
+      <div style="display:flex;gap:18px;margin-top:16px;flex-wrap:wrap">
+        <div style="background:var(--card);padding:12px;border-radius:10px;min-width:150px">
+          <div style="font-size:20px;font-weight:800">35+</div>
+          <div class="muted">LAN Matches</div>
+        </div>
+        <div style="background:var(--card);padding:12px;border-radius:10px;min-width:150px">
+          <div style="font-size:20px;font-weight:800">1.2M</div>
+          <div class="muted">Views (YTD)</div>
+        </div>
+        <div style="background:var(--card);padding:12px;border-radius:10px;min-width:150px">
+          <div style="font-size:20px;font-weight:800">#8</div>
+          <div class="muted">Regional Rank</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & Social -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="muted">Business, scrims or sponsorships — reach out.</p>
+
+      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:18px">
+        <form onsubmit="alert('Demo: message captured.');event.preventDefault()">
+          <input placeholder="Your name" required />
+          <input type="email" placeholder="Email" required />
+          <textarea placeholder="Message" required></textarea>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+
+        <div style="min-width:260px">
+          <div style="font-weight:800;margin-bottom:8px">Join Our Community</div>
+
+          <!-- social icons (inline SVGs) -->
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <a href="https://twitter.com/yourteam" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 7.2c.01.16.01.32.01.48 0 4.9-3.73 10.56-10.56 10.56A10.5 10.5 0 0 1 3 17.8c.36.04.72.06 1.09.06 2.1 0 4.03-.72 5.57-1.92-1.96-.04-3.61-1.33-4.18-3.11.27.04.55.07.84.07.4 0 .8-.05 1.17-.16-2.04-.41-3.59-2.23-3.59-4.42v-.06c.61.34 1.3.55 2.05.57-1.2-.8-1.99-2.15-1.99-3.69 0-.81.22-1.56.61-2.21 2.2 2.7 5.5 4.47 9.22 4.66-.07-.33-.11-.67-.11-1.02 0-2.47 2-4.47 4.47-4.47 1.29 0 2.47.55 3.29 1.44 1.02-.2 1.98-.57 2.85-1.08-.33 1.03-1.03 1.9-1.95 2.45z"/></svg>
+              <span>Twitter</span>
+            </a>
+
+            <a href="https://youtube.com/yourteam" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.12C19.64 3.5 12 3.5 12 3.5s-7.64 0-9.4.58A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.12c1.76.58 9.4.58 9.4.58s7.64 0 9.4-.58A3 3 0 0 0 23.5 17.8C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.02V8.98L15.75 12l-6 3.02z"/></svg>
+              <span>YouTube</span>
+            </a>
+
+            <a href="https://discord.gg/yourteam" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:8px">
+              <!-- Discord SVG (simple) -->
+              <svg class="icon" viewBox="0 0 245 240" fill="currentColor"><path d="M104.4 104.5c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.6-11.1-10.2-11.1zm36.2 0c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.6-11.1-10.2-11.1z"/><path d="M189.5 20h-134C24.8 20 15 29.8 15 41.5v157c0 11.7 9.8 21.5 21.5 21.5h113.7l-5.3-18.4 12.8 11.9 12.1 11.3 21.3 19V41.5c0-11.7-9.8-21.5-21.6-21.5zM162 162s-5.3-6.3-9.7-11.9c19.2-5.4 26.5-17.4 26.5-17.4-6 4-11.7 6.9-16.9 8.9-7.3 3.1-14.3 5.1-21.1 6.3-14 2.6-26.8 1.9-37.8-0.1-8.3-1.6-15.4-3.8-21.2-6.3-3.3-1.3-6.9-3-10.5-5.2-0.4-0.2-0.8-0.4-1.2-0.7-0.3-0.2-0.4-0.3-0.6-0.4-2.6-1.5-4.1-2.6-4.1-2.6s7 11.8 25.6 17.3c-4.4 5.6-9.8 12-9.8 12-32.3-1-44.6-22.2-44.6-22.2 0-47.1 21.1-85.4 21.1-85.4 21.1-15.8 41.1-15.3 41.1-15.3l1.5 1.8c-26.4 7.5-38.6 18.8-38.6 18.8s3.2-1.8 8.6-4.4c15.7-6.9 28.1-8.8 33.2-9.3.8-0.1 1.5-0.2 2.3-0.2 8.3-1.1 17.7-1.4 27.4-0.3 12.9 1.5 26.8 5.5 40.9 13.6 0 0-11.6-11-36.6-18.5l2.1-2.4s20-0.5 41.1 15.3c0 0 21.1 38.3 21.1 85.4 0 0-12.3 21.2-44.6 22.2z"/></svg>
+              <span>Discord</span>
+            </a>
+          </div>
+
+          <div style="margin-top:16px;color:var(--muted)">Email: <a href="mailto:contact@omegastrike.xyz" style="color:var(--muted);text-decoration:underline">contact@omegastrike.xyz</a></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> OmegaStrike • All rights reserved • Built by <a href="https://instagram.com/zellesis18" target="_blank" rel="noopener noreferrer" style="color:var(--muted);text-decoration:underline">zellesis18</a>
+    </footer>
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // lightweight scroll behavior for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}) }
+      });
+    });
+  </script>
+</body>
+</html>
